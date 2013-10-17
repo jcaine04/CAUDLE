@@ -4,11 +4,12 @@ Created on Oct 13, 2013
 @author: johncaine
 '''
 
+from math import exp
+
 class CalcStats(object):
     '''
     classdocs
     '''
-
 
     def __init__(self):
         '''
@@ -53,11 +54,26 @@ class CalcStats(object):
     def pace(self, tmposs, oppposs, tmmp):
         return 40.0 * ((tmposs + oppposs) / (2.0 * (tmmp / 5)))
         
+    def poss(self, tmfga, tmfta, tmoreb, oppdreb, tmfga, tmfgm, tmtos, oppfga, oppfta, opporeb, tmdreb, oppfga, oppfgm, opptos):
+        return 0.5 * ((tmfga + 0.4 * tmfta - 1.07 * (tmoreb / (tmoreb + oppdreb)) * (tmfga - tmfgm) + tmtos) \
+                      + (oppfga + 0.4 * oppfta - 1.07 * (opporeb / (opporeb + tmdreb)) * (oppfga - oppfgm) + opptos))
     
+    def stlPercentage(self, stl, tmmp, mp, oppposs):
+        return (stl * (tmmp / 5)) / (mp * oppposs)
+    
+    def toPercentage(self, tos, fga, fta):
+        return tos / (fga + 0.44 * fta + tos)
+    
+    def tsPercentage(self, pts, fga, fta):
+        return pts / (2.0 * (fga + 0.44 * fta))
+
+    def usgPercentage(self, fga, fta, tos, tmmp, mp, tmfga, tmfta, tmtos):
+        return ((fga + 0.44 * fta + tos) * (tmmp / 5)) / (mp * (tmfga + 0.44 * tmfta + tmtos))
         
-        
-        
-        
+    def wPyth(self, g, ortg, drtg):
+        oweighted = exp(ortg, 10.25)
+        dweighted = exp(drtg, 10.25)
+        return oweighted / (oweighted + dweighted)
         
         
         
