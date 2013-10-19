@@ -10,7 +10,7 @@ import datetime
 from bs4 import BeautifulSoup
 
 #connect to db
-db = MySQLdb.connect(host = "localhost",
+db = MySQLdb.connect(host = "xlocalhost",
                      user = "root",
                      passwd = "password",
                      db = "ncbstats")
