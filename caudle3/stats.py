@@ -16,7 +16,12 @@ class DataExtraction(object):
         
         #initialize variables
         url = self.sys.rosterURLSource
-        html = urllib2.urlopen(url)
+        try:
+            html = urllib2.urlopen(url)
+        except:
+            print "An error connecting to the URL occured. Please try again later."
+            exit(1)
+
         soup = BeautifulSoup(html)
         
         #get all the school URLs
