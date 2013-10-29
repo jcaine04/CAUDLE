@@ -87,7 +87,7 @@ class Utilities(object):
  
 class SysConfig(object):       
      
-    currentSeason = ''
+    currentSeason = '2014'
     gameURLSource = "http://scores.espn.go.com/ncb/scoreboard?confId=50&date="
     rosterURLSource = "http://espn.go.com/mens-college-basketball/teams"
     logFile = 'logs/log.txt'
